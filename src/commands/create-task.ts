@@ -15,7 +15,8 @@ import { generateTaskImage } from '../lib/task-gen';
 import { printImage } from '../lib/printer';
 
 @ApplyOptions<Command.Options>({
-	description: 'Create a task and print it'
+	description: 'Create a task and print it',
+	preconditions: ['OwnerOnly']
 })
 export default class CreateTaskCommand extends Command {
 	// Command registration

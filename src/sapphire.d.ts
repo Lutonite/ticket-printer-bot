@@ -1,3 +1,4 @@
+import { ArrayString } from '@skyra/env-utilities';
 import type { Snowflake } from 'discord.js';
 
 declare module '@skyra/env-utilities' {
@@ -7,5 +8,8 @@ declare module '@skyra/env-utilities' {
 
 		// Printer
 		PRINTER_INTERFACE: string;
+
+		// Owner IDs
+		PRINTER_OWNERS: ArrayString;
 	}
 }
