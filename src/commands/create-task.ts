@@ -4,15 +4,15 @@ import {
 	ActionRowBuilder,
 	ApplicationIntegrationType,
 	MessageFlags,
-	ModalActionRowComponentBuilder,
+	type ModalActionRowComponentBuilder,
 	ModalBuilder,
 	ModalSubmitInteraction,
 	TextInputBuilder,
 	TextInputStyle
 } from 'discord.js';
-import { successEmbed } from '../lib/utils';
-import { generateTaskImage } from '../lib/task-gen';
-import { printImage } from '../lib/printer';
+import { successEmbed } from '#lib/utils';
+import { generateTaskImage } from '#lib/task-gen';
+import { printImage } from '#lib/printer';
 
 @ApplyOptions<Command.Options>({
 	description: '[Owner Only] Create a task and print it',

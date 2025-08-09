@@ -1,8 +1,8 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
 import { ApplicationIntegrationType, MessageFlags } from 'discord.js';
-import { successEmbed } from '../lib/utils';
-import { KillSwitchPrecondition } from '../preconditions/KillSwitch';
+import { successEmbed } from '#lib/utils';
+import { KillSwitchPrecondition } from '#preconditions/KillSwitch';
 
 @ApplyOptions<Command.Options>({
 	description: '[Owner Only] Toggle printing tickets',

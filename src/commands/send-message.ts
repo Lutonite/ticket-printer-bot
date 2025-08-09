@@ -4,15 +4,15 @@ import {
 	ActionRowBuilder,
 	ApplicationIntegrationType,
 	MessageFlags,
-	ModalActionRowComponentBuilder,
+	type ModalActionRowComponentBuilder,
 	ModalBuilder,
 	ModalSubmitInteraction,
 	TextInputBuilder,
 	TextInputStyle
 } from 'discord.js';
-import { successEmbed } from '../lib/utils';
-import { generateMessageImage } from '../lib/task-gen';
-import { printImage } from '../lib/printer';
+import { successEmbed } from '#lib/utils';
+import { generateMessageImage } from '#lib/task-gen';
+import { printImage } from '#lib/printer';
 
 @ApplyOptions<Command.Options>({
 	description: 'Send a printed message to Lutonite',

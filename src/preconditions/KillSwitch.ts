@@ -1,6 +1,6 @@
 import { Precondition } from '@sapphire/framework';
 import { envParseArray } from '@skyra/env-utilities';
-import { CommandInteraction, ContextMenuCommandInteraction, Message, Snowflake } from 'discord.js';
+import { CommandInteraction, ContextMenuCommandInteraction, Message, type Snowflake } from 'discord.js';
 
 let printerEnabled: boolean = true;
 

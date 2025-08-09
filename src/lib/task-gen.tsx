@@ -1,10 +1,14 @@
-import satori, { SatoriOptions } from 'satori';
+import satori, { type SatoriOptions } from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
-import * as dayjs from 'date-fns';
+import { formatDate, addDays } from 'date-fns';
+import { TZDate } from '@date-fns/tz';
 import { frCH } from 'date-fns/locale';
+import { rootDir } from '#lib/constants';
+
+const LOCAL_TIMEZONE = 'Europe/Zurich';
 
 export interface Task {
 	priority: 1 | 2 | 3;
@@ -43,13 +47,13 @@ const satoriOptions: SatoriOptions = {
 	fonts: [
 		{
 			name: 'Inter',
-			data: fs.readFileSync(path.join(__dirname, '../../assets/inter.otf')),
+			data: fs.readFileSync(path.join(rootDir, 'assets/inter.otf')),
 			weight: 400,
 			style: 'normal'
 		},
 		{
 			name: 'Inter Bold',
-			data: fs.readFileSync(path.join(__dirname, '../../assets/inter-bold.otf')),
+			data: fs.readFileSync(path.join(rootDir, 'assets/inter-bold.otf')),
 			weight: 700,
 			style: 'normal'
 		}
@@ -58,7 +62,7 @@ const satoriOptions: SatoriOptions = {
 };
 
 export async function generateMessageImage(message: Message): Promise<string> {
-	const date = dayjs.formatDate(new Date(), 'EEEE, d MMMM, HH:mm', { locale: frCH });
+	const date = formatDate(TZDate.tz(LOCAL_TIMEZONE), 'EEEE, d MMMM, HH:mm', { locale: frCH });
 
 	const messageSvg = await satori(
 		<div
@@ -166,7 +170,7 @@ export async function generateMessageImage(message: Message): Promise<string> {
 }
 
 export async function generateTaskImage(task: Task): Promise<string> {
-	const deadline = dayjs.formatDate(dayjs.addDays(new Date(), task.deadline), 'EEEE, d MMMM', { locale: frCH });
+	const deadline = formatDate(addDays(TZDate.tz(LOCAL_TIMEZONE), task.deadline), 'EEEE, d MMMM', { locale: frCH });
 
 	const taskSvg = await satori(
 		<div

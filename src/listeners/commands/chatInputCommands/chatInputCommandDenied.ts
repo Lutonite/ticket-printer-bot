@@ -1,4 +1,4 @@
-import { ChatInputCommandDeniedPayload, Events } from '@sapphire/framework';
+import { type ChatInputCommandDeniedPayload, Events } from '@sapphire/framework';
 import { Listener, UserError } from '@sapphire/framework';
 
 export class ChatInputCommandDeniedEvent extends Listener<typeof Events.ChatInputCommandDenied> {
