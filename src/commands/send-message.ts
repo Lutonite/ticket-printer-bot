@@ -15,7 +15,8 @@ import { generateMessageImage } from '../lib/task-gen';
 import { printImage } from '../lib/printer';
 
 @ApplyOptions<Command.Options>({
-	description: 'Send a little message to Lutonite'
+	description: 'Send a printed message to Lutonite',
+	preconditions: ['KillSwitch']
 })
 export default class CreateTaskCommand extends Command {
 	// Command registration
