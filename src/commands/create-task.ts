@@ -3,6 +3,7 @@ import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
 import {
 	ActionRowBuilder,
 	ApplicationIntegrationType,
+	InteractionContextType,
 	MessageFlags,
 	type ModalActionRowComponentBuilder,
 	ModalBuilder,
@@ -26,6 +27,7 @@ export default class CreateTaskCommand extends Command {
 				.setName(this.name)
 				.setDescription(this.description)
 				.setIntegrationTypes([ApplicationIntegrationType.UserInstall])
+				.setContexts([InteractionContextType.BotDM, InteractionContextType.Guild, InteractionContextType.PrivateChannel])
 				.addNumberOption((option) =>
 					option
 						.setName('priority')

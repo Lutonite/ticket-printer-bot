@@ -1,6 +1,6 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { ApplicationCommandRegistry, Command } from '@sapphire/framework';
-import { ApplicationIntegrationType, MessageFlags } from 'discord.js';
+import { ApplicationIntegrationType, InteractionContextType, MessageFlags } from 'discord.js';
 import { successEmbed } from '#lib/utils';
 import { KillSwitchPrecondition } from '#preconditions/KillSwitch';
 
@@ -16,6 +16,7 @@ export default class CreateTaskCommand extends Command {
 				.setName(this.name)
 				.setDescription(this.description)
 				.setIntegrationTypes([ApplicationIntegrationType.UserInstall])
+				.setContexts([InteractionContextType.BotDM, InteractionContextType.Guild, InteractionContextType.PrivateChannel])
 				.addBooleanOption((option) => option.setName('enable').setDescription('Enable or disable printing tickets').setRequired(true))
 		);
 	}
