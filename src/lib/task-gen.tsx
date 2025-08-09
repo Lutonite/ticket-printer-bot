@@ -256,12 +256,12 @@ export async function generateTaskImage(task: Task): Promise<string> {
 					style={{
 						alignSelf: 'flex-start',
 						flexDirection: 'column',
-						listStyleType: 'square',
-						padding: '0 0 0 16px'
+						listStyleType: 'none',
+						padding: '0 0 0 8px'
 					}}
 				>
 					{task.subtasks.map((task, index) => (
-						<li key={index} style={{ marginBottom: '8px' }}>
+						<li key={index} style={{ marginBottom: '8px', textAlign: 'left' }}>
 							<svg
 								width="30"
 								height="30"
@@ -272,7 +272,7 @@ export async function generateTaskImage(task: Task): Promise<string> {
 							>
 								<rect x="4" y="4" width="24" height="24" style={{ stroke: '#000', strokeWidth: '2', fill: 'none' }} />
 							</svg>
-							<span>{task}</span>
+							<span style={{ maxWidth: '512px' }}>{task}</span>
 						</li>
 					))}
 				</ul>
