@@ -68,7 +68,7 @@ export async function generateMessageImage(message: Message): Promise<string> {
 		<div
 			style={{
 				background: 'white',
-				padding: '32px 5px',
+				padding: '0 5px 32px 0',
 				fontFamily: 'Inter',
 				width: '100%',
 				height: '100%',
@@ -176,7 +176,7 @@ export async function generateTaskImage(task: Task): Promise<string> {
 		<div
 			style={{
 				background: 'white',
-				padding: '32px 5px',
+				padding: '0 5px 32px 0',
 				fontFamily: 'Inter',
 				width: '100%',
 				height: '100%',
